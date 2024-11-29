@@ -1,249 +1,77 @@
-import "dotenv/config.js"
-import "../../config/database.js"
-import User from "../User.js"
+import "dotenv/config.js";
+import "../../config/database.js";
+import User from "../User.js";
+const arrayUsers = [
+    {
+      name: "John Doe",
+      password: "password123",
+      photo: "https://example.com/photo1.jpg",
+      role: 0,
+      online: false
+    },
+    {
+      name: "Jane Smith",
+      password: "password456",
+      photo: "https://example.com/photo2.jpg",
+      role: 0,
+      online: false
+    },
+    {
+      name: "Alice Brown",
+      password: "password789",
+      photo: "https://example.com/photo3.jpg",
+      role: 0,
+      online: false
+    },
+    {
+      name: "Bob Johnson",
+      password: "password012",
+      photo: "https://example.com/photo4.jpg",
+      role: 0,
+      online: false
+    },
+    {
+      name: "Charlie Lee",
+      password: "password345",
+      photo: "https://example.com/photo5.jpg",
+      role: 0,
+      online: false
+    },
+    {
+      name: "David Wilson",
+      password: "password678",
+      photo: "https://example.com/photo6.jpg",
+      role: 0,
+      online: false
+    },
+    {
+      name: "Eva Martin",
+      password: "password910",
+      photo: "https://example.com/photo7.jpg",
+      role: 0,
+      online: false
+    },
+    {
+      name: "Frank Clark",
+      password: "password111",
+      photo: "https://example.com/photo8.jpg",
+      role: 0,
+      online: false
+    },
+    {
+      name: "Grace Walker",
+      password: "password222",
+      photo: "https://example.com/photo9.jpg",
+      role: 0,
+      online: false
+    },
+    {
+      name: "Harry White",
+      password: "password333",
+      photo: "https://example.com/photo10.jpg",
+      role: 0,
+      online: false
+    }
+  ]
 
-let users = [
-  {
-    _id: 1,
-    photo: "https://randomuser.me/api/portraits/men/1.jpg",
-    name: "John Doe",
-    email: "johndoe@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 2,
-    photo: "https://randomuser.me/api/portraits/women/1.jpg",
-    name: "Jane Smith",
-    email: "janesmith@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 3,
-    photo: "https://randomuser.me/api/portraits/men/2.jpg",
-    name: "Michael Johnson",
-    email: "michaeljohnson@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 4,
-    photo: "https://randomuser.me/api/portraits/women/2.jpg",
-    name: "Emily Davis",
-    email: "emilydavis@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 5,
-    photo: "https://randomuser.me/api/portraits/men/3.jpg",
-    name: "David Martinez",
-    email: "davidmartinez@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 6,
-    photo: "https://randomuser.me/api/portraits/women/3.jpg",
-    name: "Sophia Lee",
-    email: "sophialee@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 7,
-    photo: "https://randomuser.me/api/portraits/men/4.jpg",
-    name: "James Wilson",
-    email: "jameswilson@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 8,
-    photo: "https://randomuser.me/api/portraits/women/4.jpg",
-    name: "Mia Brown",
-    email: "miabrown@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 9,
-    photo: "https://randomuser.me/api/portraits/men/5.jpg",
-    name: "Chris Taylor",
-    email: "christaylor@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 10,
-    photo: "https://randomuser.me/api/portraits/women/5.jpg",
-    name: "Isabella Anderson",
-    email: "isabellaanderson@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 11,
-    photo: "https://randomuser.me/api/portraits/men/6.jpg",
-    name: "Oliver Thomas",
-    email: "oliverthomas@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 12,
-    photo: "https://randomuser.me/api/portraits/women/6.jpg",
-    name: "Charlotte Walker",
-    email: "charlottewalker@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 13,
-    photo: "https://randomuser.me/api/portraits/men/7.jpg",
-    name: "Liam Harris",
-    email: "liamharris@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 14,
-    photo: "https://randomuser.me/api/portraits/women/7.jpg",
-    name: "Amelia Young",
-    email: "ameliayoung@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 15,
-    photo: "https://randomuser.me/api/portraits/men/8.jpg",
-    name: "Mason King",
-    email: "masonking@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 16,
-    photo: "https://randomuser.me/api/portraits/women/8.jpg",
-    name: "Olivia Scott",
-    email: "oliviascott@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 17,
-    photo: "https://randomuser.me/api/portraits/men/9.jpg",
-    name: "Elijah Baker",
-    email: "elijahbaker@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 18,
-    photo: "https://randomuser.me/api/portraits/women/9.jpg",
-    name: "Ava Wright",
-    email: "avawright@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 19,
-    photo: "https://randomuser.me/api/portraits/men/10.jpg",
-    name: "Benjamin Green",
-    email: "benjamingreen@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 20,
-    photo: "https://randomuser.me/api/portraits/women/10.jpg",
-    name: "Sophia Adams",
-    email: "sophiaadams@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 21,
-    photo: "https://randomuser.me/api/portraits/men/11.jpg",
-    name: "Alexander Perez",
-    email: "alexanderperez@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 22,
-    photo: "https://randomuser.me/api/portraits/women/11.jpg",
-    name: "Mia Hall",
-    email: "miahall@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 23,
-    photo: "https://randomuser.me/api/portraits/men/12.jpg",
-    name: "Daniel Evans",
-    email: "danielevans@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 24,
-    photo: "https://randomuser.me/api/portraits/women/12.jpg",
-    name: "Isabella Turner",
-    email: "isabellaturner@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 25,
-    photo: "https://randomuser.me/api/portraits/men/13.jpg",
-    name: "Henry Morgan",
-    email: "henrymorgan@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 26,
-    photo: "https://randomuser.me/api/portraits/women/13.jpg",
-    name: "Emily Cooper",
-    email: "emilycooper@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 27,
-    photo: "https://randomuser.me/api/portraits/men/14.jpg",
-    name: "David Martinez",
-    email: "davidmartinez@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 28,
-    photo: "https://randomuser.me/api/portraits/women/14.jpg",
-    name: "Grace Thompson",
-    email: "gracethompson@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 29,
-    photo: "https://randomuser.me/api/portraits/men/15.jpg",
-    name: "Joseph Lee",
-    email: "josephlee@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-  {
-    _id: 30,
-    photo: "https://randomuser.me/api/portraits/women/15.jpg",
-    name: "Ella White",
-    email: "ellawhite@example.com",
-    password: "password123",
-    category: "collaborator",
-  },
-];
-
-
-User.insertMany(users);
+  User.insertMany(arrayUsers);
