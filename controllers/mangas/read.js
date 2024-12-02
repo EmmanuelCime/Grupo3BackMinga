@@ -26,7 +26,7 @@ const mangaByCategory = async (req, res, next)=>{
             mangas: mangas
         })
     } catch (error) {
-        
+        next(error)
     }
 }
 

@@ -9,6 +9,6 @@ router.get('/all', allAuthors);
 router.get('/id/:id' , authorId);
 router.get('/userId/:id', authorByUserId)
 router.post('/register', create);
-router.post('/delete', deleteOne);
-router.post('/update', update)
+router.delete('/delete', deleteOne);
+router.put('/update', update)
 export default router;

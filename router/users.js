@@ -14,7 +14,7 @@ const router = Router();
 
 router.get('/all',passport.authenticate('jwt',{session:false}), allUsers);
 router.post('/register', validator(schema), existingUser, createHash, create);
-router.post('/delete',passport.authenticate('jwt',{session:false}), deleteOne);
-router.post('/update',passport.authenticate('jwt',{session:false}), update);
+router.delete('/delete', deleteOne);
+router.put('/update',passport.authenticate('jwt',{session:false}), update);
 
 export default router;
