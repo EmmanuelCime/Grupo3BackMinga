@@ -1,6 +1,7 @@
 import "dotenv/config.js";
 import "../../config/database.js";
 import User from "../User.js";
+
 const arrayUsers = [
     {
       name: "John Doe",
@@ -72,6 +73,6 @@ const arrayUsers = [
       role: 0,
       online: false
     }
-  ]
+]
 
-  User.insertMany(arrayUsers);
+User.insertMany(arrayUsers);

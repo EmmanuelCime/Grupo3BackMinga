@@ -1,4 +1,5 @@
 import Category from "../../models/Category.js"
+import Manga from "../../models/Manga.js"
 
 const allCategory = async (req, res, next) =>{
     try {
@@ -11,5 +12,6 @@ const allCategory = async (req, res, next) =>{
         next(error)
     }
 }
+
 
 export {allCategory}

@@ -31,13 +31,14 @@ const categories = [
       adminId: null
     },
     {
-      name: "Kodomo",
+      name: "Comics",
       color: "#E0DBFF",
       hover: "#8883F0",
-      coverPhoto: "https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/05/pjimage-(7)-3.jpg",
-      charcterPhoto: "https://i0.wp.com/senpai.com.mx/wp-content/uploads/2020/07/Iron-Man-1280x720-37.jpg?fit=1280%2C720&ssl=1",
-      description: "Kodomo is aimed at young children. The stories are usually educational and entertaining, focusing on teaching basic values and skills.",
+      coverPhoto: "https://sm.ign.com/t/ign_es/screenshot/default/blob_n6vk.1280.jpgg",
+      charcterPhoto: "https://images.cdn3.buscalibre.com/fit-in/360x360/6f/4b/6f4bc709e6cb7cdc942d3e26a2d39bb7.jpg",
+      description: "Comic books are a storytelling medium that combines visual art with text in sequential panels. They cover various genres like superheroes, fantasy, and sci-fi. Comics offer a unique, immersive experience and are enjoyed by readers of all ages worldwide.",
       adminId: null
-    }
+    },
+    
   ]
 Category.insertMany(categories)

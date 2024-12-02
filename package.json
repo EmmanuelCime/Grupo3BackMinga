@@ -8,8 +8,10 @@
     "start": "node server.js",
     "dev": "nodemon ./server.js",
     "dataUsers": "node ./models/data/users.js",
+    "dataAuthors": "node ./models/data/authors.js",
     "dataCompany": "node ./models/data/company.js",
-    "dataCategory": "node ./models/data/category.js"
+    "dataCategory": "node ./models/data/category.js",
+    "dataMangaAndChapter": "node ./models/data/data.js"
   },
   "keywords": [],
   "author": "",
