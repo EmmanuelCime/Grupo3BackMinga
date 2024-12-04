@@ -1,17 +1,16 @@
 import User from "../models/User.js"
 
-export default async (req, res, next)=>{
-    
+export default async (req, res, next) => {
     try {
-        const user = await User.findOne({mail:req.body.mail})
-        if (user) {
+        let account = await User.findOne({email: req.body.email})
+        if(account){
             return res.status(400).json({
-                succes: false,
-                message: [{registeredMail: true}]
+                success: false,
+                messages: "User already exists"
             })
         }
-        return next()
+        next()
     } catch (error) {
-        return next(error)
+        next(error)
     }
 }
