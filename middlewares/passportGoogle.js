@@ -11,13 +11,18 @@ export default passport.use(
         },
         async (accesToken, refreshToken, profile, done) =>{
             try {
-                let dataUser = await User.findOne({mail:profile.emails[0].value})
-                if (dataUser) {
-                    return done(null,dataUser)
-                }else{
-                    const user = {create:true, profile:profile}
-                    return done(null, user)
+                let user = await User.findOne({email:profile.emails[0].value})
+                if (!user) {
+                    user = new User({
+                        email: profile.emails[0].value,
+                        photo: profile.photos[0].value,
+                        online: false,
+                        role:0,
+                        password: profile.id
+                    })
+                    await user.save()
                 }
+                return done(null, user)
             } catch (error) {
                 return done(error,null)
             }
