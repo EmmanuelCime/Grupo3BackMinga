@@ -7,7 +7,7 @@ import "../../models/Company.js"
 
 const allMangas = async (req, res, next) =>{
     try {
-        const mangas = await Manga.find().populate("authorId", "name photo").populate("categoryId", "name color hover").exec()
+        const mangas = await Manga.find().populate("authorId", "name photo").populate("companyId", "name photo").populate("categoryId", "name color hover").exec()
         return res.status(200).json({
             success: true,
             mangas: mangas
@@ -20,7 +20,7 @@ const mangaByCategory = async (req, res, next)=>{
     const idManga = req.params.category
     
     try {
-        const mangas = await Manga.find({categoryId: idManga}).populate("authorId", "name photo").populate("categoryId", "name color hover").exec()
+        const mangas = await Manga.find({categoryId: idManga}).populate("authorId", "name photo").populate("companyId", "name photo").populate("categoryId", "name color hover").exec()
         return res.status(200).json({
             success: true,
             mangas: mangas
@@ -33,7 +33,7 @@ const mangasByAuthor = async (req, res, next) => {
     const authorId = req.params.authorId
     
     try {
-        const mangas = await Manga.find({authorId: authorId}).populate("authorId", "name photo").populate("categoryId", "name color hover").exec()
+        const mangas = await Manga.find({authorId: authorId}).populate("authorId", "name photo").populate("companyId", "name photo").populate("categoryId", "name color hover").exec()
         return res.status(200).json({
             success: true,
             mangas: mangas
