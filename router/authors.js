@@ -3,12 +3,14 @@ import {allAuthors, authorId, authorByUserId} from "../controllers/authors/read.
 import {create} from "../controllers/authors/create.js"
 import { deleteOne } from "../controllers/authors/delete.js";
 import { update } from "../controllers/authors/update.js";
+import validator from "../middlewares/validator.js";
+import schema from "../schema/author/create.js"
 
 const router = Router();
 router.get('/all', allAuthors);
 router.get('/id/:id' , authorId);
 router.get('/userId/:id', authorByUserId)
-router.post('/register', create);
+router.post('/register',validator(schema), create);
 router.delete('/delete', deleteOne);
 router.put('/update', update)
 export default router;
