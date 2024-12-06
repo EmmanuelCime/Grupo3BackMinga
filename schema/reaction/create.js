@@ -6,6 +6,6 @@ const schema = joi.object({
         'string.pattern.name': ERROR_FORMAT_ID,
         'any.required': ERROR_REQUIRED
     }),
-    reaction: joi.objectId().required().number().positive().less(5)
+    reaction: joi.objectId().required()
 })
 export default schema
