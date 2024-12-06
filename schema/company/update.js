@@ -11,6 +11,11 @@ const schema = joi.object({
         'string.pattern.base': ERROR_LETTERS_SPACE,
         'string.empty': ERROR_EMPTY
     }),
+    country: joi.string().pattern(/^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/).messages({
+        'string.base': ERROR_STRING,
+        'string.pattern.base': ERROR_LETTERS_SPACE,
+        'string.empty': ERROR_EMPTY
+    }), 
     webSite: joi.string().uri().messages({
         'string.base': ERROR_STRING,
         'string.empty': ERROR_EMPTY,

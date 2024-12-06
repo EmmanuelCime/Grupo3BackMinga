@@ -8,6 +8,12 @@ const schema = joi.object({
         'string.empty': ERROR_EMPTY,
         'any.required': ERROR_REQUIRED
     }),
+    country: joi.string().required().pattern(/^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/).messages({
+      'string.base': ERROR_STRING,
+      'string.pattern.base': ERROR_LETTERS_SPACE,
+      'string.empty': ERROR_EMPTY,
+      'any.required': ERROR_REQUIRED
+  }),
     webSite: joi.string().uri().required().messages({
         'string.base': ERROR_STRING,
         'string.empty': ERROR_EMPTY,
