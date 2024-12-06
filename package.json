@@ -13,7 +13,8 @@
     "dataCompany2": "node ./models/data/company2.js",
     "dataCategory": "node ./models/data/category.js",
     "dataMangaAndChapter": "node ./models/data/mangas.js",
-    "dataComments" : "node ./models/data/comments.js"
+    "dataComments" : "node ./models/data/comments.js",
+    "dataReactions" : "node ./models/data/reactions.js"
   },
   "keywords": [],
   "author": "",

@@ -2,11 +2,11 @@ import Author from "../../models/Author.js"
 
 const update = async (req, res, next) => {
     try {
-        let author = req.body
-        let update = await Author.updateOne(
-            {active: author.active}, {active: author.active}
+        const {_id, ...updateBody} = req.body
+        let update = await Author.findOneAndUpdate(
+            {_id: _id}, updateBody, {new: true}
         )
-        return res.status(200).json({response : update})
+        return res.status(200).json({success:true ,author: update})
     } catch (error) {
         next(error)
     }
