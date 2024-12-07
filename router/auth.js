@@ -10,9 +10,8 @@ import tokenVerification from "../controllers/auth/tokenVerification.js"
 import signInGoogle from "../controllers/auth/signInGoogle.js";
 const router = Router();
 
-router.post('/signin', accountNoExist, passwordIsOk ,generateToken, signIn)
-router .get("/tokenVerification", passport.authenticate('jwt',{session:false}), tokenVerification)
-router.post('/signOut', passport.authenticate('jwt',{session:false}), signOut)
+router.post('/signin', accountNoExist, passwordIsOk,generateToken, signIn)
+router.post('/signOut',passport.authenticate('jwt',{session:false}), signOut)
 router.get('/signin/google', passportGoogle.authenticate('google', {session:false, scope: ['profile', 'email']}))
 router.get('/signin/google/callback', passportGoogle.authenticate('google', {session:false, failureRedirect: '/login'}), generateToken, signInGoogle)
 export default router;

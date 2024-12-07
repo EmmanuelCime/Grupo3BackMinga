@@ -28,4 +28,27 @@ let reactionsByCompany = async(req, res, next) =>{
         next(error)
     }
 }
-export {allReactions, reactionsByAuthor, reactionsByCompany}
+
+let reactionsByAuthorAndReaction = async(req, res, next) =>{
+    try {
+        let id = req.params.id
+        let reaction = req.params.reaction
+        let reactions = await Reaction.find({authorId: id, reaction: reaction})
+        return res.status(200).json({response : reactions})
+    } catch (error) {
+        next(error)
+    }
+}
+
+let reactionsByCompanyAndReaction = async(req, res, next) =>{
+    try {
+        let id = req.params.id
+        let reaction = req.params.reaction
+        let reactions = await Reaction.find({companyId: id, reaction:reaction})
+        return res.status(200).json({response : reactions})
+    } catch (error) {
+        next(error)
+    }
+}
+
+export {allReactions, reactionsByAuthor, reactionsByCompany, reactionsByCompanyAndReaction, reactionsByAuthorAndReaction}
