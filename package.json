@@ -13,12 +13,8 @@
     "dataCompany2": "node ./models/data/company2.js",
     "dataCategory": "node ./models/data/category.js",
     "dataMangaAndChapter": "node ./models/data/mangas.js",
-<<<<<<< HEAD
-    "dataComment": "node ./models/data/comment.js"
-=======
     "dataComments" : "node ./models/data/comments.js",
     "dataReactions" : "node ./models/data/reactions.js"
->>>>>>> d1262c723063478b2e5152113a649f4d26c297aa
   },
   "keywords": [],
   "author": "",
