@@ -6,11 +6,8 @@ export default async (req,res,next) =>{
             {email: req.user.email},
             {online: true}
         )
-        return res.redirect("https://mingaapp.netlify.app/?token="+req.token)
+        return res.redirect("http://localhost:5173/?token="+req.token)
     } catch (error) {
         next(error)
     }
 }
-
-
-
