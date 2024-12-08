@@ -17,10 +17,10 @@ const allMangas = async (req, res, next) =>{
     }
 }
 const mangaByCategory = async (req, res, next)=>{
-    const idManga = req.params.category
+    const idcategory = req.params.category
     
     try {
-        const mangas = await Manga.find({categoryId: idManga}).populate("authorId", "name photo").populate("companyId", "name photo").populate("categoryId", "name color hover").exec()
+        const mangas = await Manga.find({categoryId: idcategory}).populate("authorId", "name photo").populate("companyId", "name photo").populate("categoryId", "name color hover").exec()
         return res.status(200).json({
             success: true,
             mangas: mangas
