@@ -18,6 +18,8 @@ const commentByChapter = async (req, res, next)=>{
     try {
         const idChapter = req.params.chapter
         const comment = await Comment.find({chapterId: idChapter}).populate("authorId", "name photo").populate("companyId", "name photo").exec()
+        console.log(comment);
+        
         return res.status(201).json({
             success: true,
             comment: comment
