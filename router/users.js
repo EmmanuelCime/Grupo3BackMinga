@@ -12,7 +12,7 @@ import passport from "../middlewares/passport.js";
 
 const router = Router();
 
-router.get('/all',passport.authenticate('jwt',{session:false}), allUsers);
+router.get('/all',/*passport.authenticate('jwt',{session:false}),*/ allUsers);
 router.post('/register', validator(schema), existingUser, createHash, create);
 router.delete('/delete',passport.authenticate('jwt',{session:false}), deleteOne);
 router.put('/update',passport.authenticate('jwt',{session:false}), update);
