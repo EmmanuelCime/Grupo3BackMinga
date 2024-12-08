@@ -41,6 +41,9 @@ const schema = joi.object({
       }),
     userId: joi.objectId().messages({
         'string.pattern.name': ERROR_FORMAT_ID
-    })
+    }),
+    active: joi.boolean().messages({
+        'boolean.base': ERROR_BOOLEAN
+      }),
 })
 export default schema
