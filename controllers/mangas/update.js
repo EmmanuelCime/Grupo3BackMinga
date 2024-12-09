@@ -5,7 +5,7 @@ const updateManga = async (req, res, next)=>{
       const { id } = req.params
       const updateBody = req.body
       const update = await Manga.findOneAndUpdate(
-        {_id: _id},
+        {_id: id},
         updateBody,
         {new:true}
       )
