@@ -11,6 +11,6 @@ router.get('/all', allAuthors);
 router.get('/id/:id' , authorId);
 router.get('/userId/:id', authorByUserId)
 router.post('/register',validator(schema), create);
-router.delete('/delete', deleteOne);
+router.delete('/delete/:id', deleteOne);
 router.put('/update',validator(schemaUpdate), update)
 export default router;
