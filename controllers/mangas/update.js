@@ -18,13 +18,6 @@ const updateManga = async (req, res, next) => {
       { new: true }
     )
 
-    if (!updatedManga) {
-      return res.status(404).json({
-        success: false,
-        message: "Manga not found."
-      })
-    }
-
     return res.status(200).json({
       success: true,
       manga: updatedManga
