@@ -30,8 +30,9 @@ const mangaByCategory = async (req, res, next)=>{
         next(error)
     }
 }
-const mangasByAuthor = async (req, res, next) => {
-    const authorId = req.params.authorId
+const mangasByAuthorOrCompany = async (req, res, next) => {
+    const authorId = req.query.author
+    const companyId = req.query.company
     
     try {
         const mangas = await Manga.find({authorId: authorId}).populate("authorId", "name photo").populate("companyId", "name photo").populate("categoryId", "name color hover").exec()
@@ -79,5 +80,5 @@ const favoriteMangaByAuthorOrCompany = async(req, res, next)=>{
     }
 }
 
-export {allMangas, mangaByCategory, mangasByAuthor, favoriteMangaByAuthorOrCompany}
+export {allMangas, mangaByCategory, mangasByAuthorOrCompany, favoriteMangaByAuthorOrCompany}
 
