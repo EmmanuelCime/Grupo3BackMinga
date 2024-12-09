@@ -1,4 +1,5 @@
-import Chapter from "../../models/Chapter.js";
+import Chapter from "../../models/Chapter.js"
+
 const deletedOneChapter = async (req,res,next) =>{
     try {
         const deletedChapter = await Chapter.deleteOne({_id: req.body._id})

@@ -1,19 +1,19 @@
-import Chapter from "../../models/Chapter.js"
+import Comment from "../../models/Comment.js"
 
-const updateChapter = async (req, res, next)=>{
+const updateComment = async (req, res, next)=>{
     try {
       const {_id, ...updateBody} = req.body
-      const update = await Chapter.findOneAndUpdate(
+      const update = await Comment.findOneAndUpdate(
         {_id: _id},
         updateBody,
         {new:true}
       )
       return res.status(201).json({
         success: true,
-        company: update
+        comments: update
         })
     } catch (error) {      
       return next(error)
     }
   }
-  export {updateChapter}
+  export {updateComment}

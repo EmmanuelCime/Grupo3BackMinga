@@ -1,4 +1,5 @@
-import Chapter from "../../models/Chapter.js";
+import Chapter from "../../models/Chapter.js"
+
 const createChapter = async (req, res, next) =>{
     try {
         const chapter = await Chapter.create(req.body)

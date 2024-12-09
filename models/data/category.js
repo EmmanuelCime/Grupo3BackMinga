@@ -2,7 +2,10 @@ import "dotenv/config.js"
 import "../../config/database.js"
 import Category from "../Category.js"
 import "../User.js"
+<<<<<<< HEAD
+=======
 
+>>>>>>> c7f291e5a5ffe8cef65a1ac948d43f9c627e3710
 const categories = [
     {
       name: "Shōnen",
