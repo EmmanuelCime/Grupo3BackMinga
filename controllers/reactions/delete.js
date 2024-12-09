@@ -1,12 +1,25 @@
 import Reaction from "../../models/Reaction.js"
 
-const deleteOne = async(req, res, next) => {
+const deleteOneByAuthor = async(req, res, next) => {
     try {
-        let reactionId = await Reaction.deleteOne({_id: req.body._id})
+        let authorId = req.body.authorId;
+        let mangaId = req.body.mangaId;
+        let reactionId = await Reaction.deleteMany({authorId: authorId, mangaId: mangaId} )
         return res.status(200).json({response: reactionId})
     } catch(error){
         next(error)
     }
 }
 
-export {deleteOne}
+const deleteOneByCompany = async(req, res, next) => {
+    try {
+        let companyId = req.body.companyId;
+        let mangaId = req.body.mangaId;
+        let reactionId = await Reaction.Delete({mangaId: mangaId, companyId: companyId} )
+        return res.status(200).json({response: reactionId})
+    } catch(error){
+        next(error)
+    }
+}
+
+export {deleteOneByAuthor, deleteOneByCompany}

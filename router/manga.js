@@ -20,7 +20,7 @@ router.get("/mangaByCategory/:category", validarorParams(schemaCategory), mangaB
 router.get("/mangasByAuthor/:authorId", validarorParams(schemaAuthor), mangasByAuthor)
 
 //update
-router.put("/update", validator(schemaUpdate), updateManga)
+router.put("/update/:id", validator(schemaUpdate), updateManga)
 
 //delete
 router.delete("/delete", validator(schemaDelete), deletedOneManga)
