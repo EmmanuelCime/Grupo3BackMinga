@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { allMangas, mangaByCategory, mangasByAuthor } from "../controllers/mangas/read.js"
+import { allMangas, favoriteMangaByAuthorOrCompany, mangaByCategory, mangasByAuthor } from "../controllers/mangas/read.js"
 import { createmanga } from "../controllers/mangas/create.js"
 import { updateManga } from "../controllers/mangas/update.js"
 import { deletedOneManga } from "../controllers/mangas/delete.js"
@@ -18,6 +18,7 @@ router.post("/create", validator(schemaCreate), createmanga)
 router.get("/all", allMangas)
 router.get("/mangaByCategory/:category", validarorParams(schemaCategory), mangaByCategory )
 router.get("/mangasByAuthor/:authorId", validarorParams(schemaAuthor), mangasByAuthor)
+router.get("/favoriteManga", favoriteMangaByAuthorOrCompany)
 
 //update
 router.put("/update", validator(schemaUpdate), updateManga)
