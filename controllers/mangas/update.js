@@ -2,7 +2,8 @@ import Manga from "../../models/Manga.js"
 
 const updateManga = async (req, res, next)=>{
     try {
-      const {_id, ...updateBody} = req.body
+      const { id } = req.params
+      const updateBody = req.body
       const update = await Manga.findOneAndUpdate(
         {_id: _id},
         updateBody,
