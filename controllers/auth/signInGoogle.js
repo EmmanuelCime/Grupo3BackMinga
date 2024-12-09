@@ -6,7 +6,7 @@ export default async (req,res,next) =>{
             {email: req.user.email},
             {online: true}
         )
-        return res.redirect("https://mingaapp.netlify.app/?token="+req.token)
+        return res.redirect("https://grupo3-front-minga.vercel.app/?token="+req.token)
     } catch (error) {
         next(error)
     }
