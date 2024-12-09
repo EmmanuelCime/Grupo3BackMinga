@@ -5,6 +5,7 @@ export default (req, res, next) => {
     let passwordDb = req.user.password;
 
     let compare = bcryptjs.compareSync(passwordBody, passwordDb)
+    
     if(compare) {
         delete req.body.password
         return next()
