@@ -26,9 +26,8 @@ const schema = joi.object({
         'string.pattern.base': ERROR_LETTERS_SPACE,
         'string.empty': ERROR_EMPTY
     }),
-    dateBorn: joi.string().pattern(/^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/).messages({
+    dateBorn: joi.string().messages({
         'string.base': ERROR_STRING,
-        'string.pattern.base': ERROR_LETTERS_SPACE,
         'string.empty': ERROR_EMPTY
     }),
     photo: joi.string().uri().messages({

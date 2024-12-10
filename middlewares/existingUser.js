@@ -6,7 +6,7 @@ export default async (req, res, next) => {
         if(account){
             return res.status(400).json({
                 success: false,
-                messages: "User already exists"
+                messages: [{email:"User already exists"}]
             })
         }
         next()
