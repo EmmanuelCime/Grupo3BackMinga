@@ -6,7 +6,7 @@ let create = async(req, res, next) => {
         user.role = 0;
         user.online = true;
         
-        let newUser = await User.create(user)
+        let newUser = (await User.create(user)).lean()
         const {password, ...dataUser} = newUser
         return res.status(201).json({
             user: dataUser,
