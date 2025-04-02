@@ -10,7 +10,7 @@ let schema = new Schema({
     dateBorn:{type:String},
     photo:{type:String, required:true},
     userId:{type:Schema.Types.ObjectId, ref: "users", required: true}, 
-    active:{type:Boolean, required:true}
+    active:{type:Boolean, default:true}
 }, {
     timeseries:true
 })

@@ -21,6 +21,8 @@ export default passport.use(
                         password: profile.id
                     })
                     await user.save()
+                    user.create = true
+                    user.name = profile.name.givenName
                 }
                 return done(null, user)
             } catch (error) {

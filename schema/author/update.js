@@ -26,9 +26,8 @@ const schema = joi.object({
         'string.pattern.base': ERROR_LETTERS_SPACE,
         'string.empty': ERROR_EMPTY
     }),
-    dateBorn: joi.string().pattern(/^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/).messages({
+    dateBorn: joi.string().messages({
         'string.base': ERROR_STRING,
-        'string.pattern.base': ERROR_LETTERS_SPACE,
         'string.empty': ERROR_EMPTY
     }),
     photo: joi.string().uri().messages({
@@ -41,6 +40,9 @@ const schema = joi.object({
       }),
     userId: joi.objectId().messages({
         'string.pattern.name': ERROR_FORMAT_ID
-    })
+    }),
+    active: joi.boolean().messages({
+        'boolean.base': ERROR_BOOLEAN
+      }),
 })
 export default schema

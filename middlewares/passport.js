@@ -10,7 +10,7 @@ export default passport.use(
         },
         async (jwt_payload, done) =>{
             try {
-                let dataUser = await User.findOne({mail:jwt_payload.email}).lean()
+                let dataUser = await User.findOne({email:jwt_payload.email}).lean()
                 if (dataUser) {
                     const {password, ...user} = dataUser
                     return done(null,user)

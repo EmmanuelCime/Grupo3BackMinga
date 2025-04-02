@@ -33,4 +33,5 @@ const updateManga = async (req, res, next) => {
     return next(error)
   }
 }
+
 export { updateManga }

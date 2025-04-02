@@ -9,6 +9,9 @@ const schema = joi.object({
         'string.empty': ERROR_EMPTY,
         'string.uri': ERROR_URL,
         'any.required': ERROR_REQUIRED
+      }),
+      sendEmail: joi.boolean().messages({
+        'boolean.base': ERROR_BOOLEAN
       })
 })
 
