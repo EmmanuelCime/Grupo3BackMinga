@@ -1,5 +1,5 @@
 import Author from "../../models/Author.js";
-
+import User from "../../models/User.js";
 
 let create = async (req, res, next) => {
     try {
@@ -20,6 +20,6 @@ let create = async (req, res, next) => {
     } catch (error) {
         next(error)
     }
-}
+};
 
-export {create}
+export { create }
